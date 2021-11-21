@@ -1,0 +1,42 @@
+Create external table mf.mf_fee(
+fee_valid_from date
+,regis_id string
+,fund_name_th string
+,fund_abbr_name string
+,fund_class_id string
+,comp_thai_name_rep string
+,dividend_policy string
+,fee_tt decimal(8,5)
+,fee_of decimal(8,5)
+,fee_sp decimal(8,5)
+,fee_fr decimal(8,5)
+,fee_ia decimal(8,5)
+,fee_uw decimal(8,5)
+,fee_eo decimal(8,5)
+,fee_ff decimal(8,5)
+,fee_bf decimal(8,5)
+,fee_si decimal(8,5)
+,fee_so decimal(8,5)
+,fee_tf decimal(8,5)
+,unit_tf decimal(8,5)
+,fee_cf decimal(8,5)
+,fee_ot decimal(8,5)
+,fee_tt_actual decimal(8,5)
+,fee_of_actual decimal(8,5)
+,fee_sp_actual decimal(8,5)
+,fee_fr_actual decimal(8,5)
+,fee_ia_actual decimal(8,5)
+,fee_uw_actual decimal(8,5)
+,fee_eo_actual decimal(8,5)
+,fee_ff_actual decimal(8,5)
+,fee_bf_actual decimal(8,5)
+,fee_si_actual decimal(8,5)
+,fee_so_actual decimal(8,5)
+,fee_tf_actual decimal(8,5)
+,unit_actual_tf decimal(8,5)
+,fee_cf_actual decimal(8,5)
+,fee_ot_actual decimal(8,5)
+,url string)
+row format delimited fields terminated by '\u0001'
+stored as parquet
+location '/shared/datalake/mf/mf_fee';
