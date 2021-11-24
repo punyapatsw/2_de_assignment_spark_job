@@ -1,6 +1,6 @@
 from pyspark.sql.functions import *
 
-def compute_stats(spark:sparkSession,tbl_name:str,data_date:str):
+def compute_stats(spark,tbl_name:str,data_date:str):
     """compute hive table statistics
 
     Args:
@@ -14,7 +14,7 @@ def compute_stats(spark:sparkSession,tbl_name:str,data_date:str):
         sql="ANALYZE TABLE {} COMPUTE STATISTICS".format(tbl_name)
     spark.sql(sql)
     
-def validate_data(spark:sparkSession,df:sparkDataFrame,tbl_name:str,data_date:str,col:str):
+def validate_data(spark,df,tbl_name:str,data_date:str,col:str):
     """validate data insert completeness by compare result dataframe with data in hive table
 
     Args:

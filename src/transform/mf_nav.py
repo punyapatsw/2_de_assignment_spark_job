@@ -1,6 +1,6 @@
 from pyspark.sql.functions import *
 
-def extract(spark:SparkSession,input_file:str,data_date:str)->sparkDataFrame:
+def extract(spark,input_file:str,data_date:str):
     """read csv file to spark dataframe
 
     Args:
@@ -15,7 +15,7 @@ def extract(spark:SparkSession,input_file:str,data_date:str)->sparkDataFrame:
     df = spark.read.option("header",True).option("multiline",True).csv(source_file)
     return df
 
-def transform(df:sparkDataFrame)->sparkDataFrame:
+def transform(df):
     """transform data from csv into appropriate format
 
     Args:
@@ -56,7 +56,7 @@ def transform(df:sparkDataFrame)->sparkDataFrame:
         .withColumn('invsest_own_fund_value',regexp_replace('invsest_own_fund_value', ',', '').cast('decimal(18,2)'))
     return df
 
-def load(df:sparkDataFrame,ptn_col:str,tbl_name:str):
+def load(df,ptn_col:str,tbl_name:str):
     """load dataframe to hive table
 
     Args:
